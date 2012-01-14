@@ -9,10 +9,10 @@ import org.bukkit.entity.Player;
 
 import to.joe.j2mc.core.J2MC_Core;
 import to.joe.j2mc.core.J2MC_Manager;
+import to.joe.j2mc.core.command.MasterCommand;
 import to.joe.j2mc.lulz.J2MC_Lulz;
-import to.joe.j2mc.lulz.MasterCommand_Lulz;
 
-public class FlexCommand extends MasterCommand_Lulz{
+public class FlexCommand extends MasterCommand{
 	
 	public FlexCommand(J2MC_Lulz lulz){
 		super(lulz);
@@ -22,27 +22,27 @@ public class FlexCommand extends MasterCommand_Lulz{
 
 	@Override
 	public void exec(CommandSender sender, String commandName, String[] args,
-			Player player, String playerName, boolean isPlayer) {
-        if (!isPlayer || player.hasPermission("j2mc.lulz.flex") || playerName.equalsIgnoreCase("MrBlip")) {
+			Player player, boolean isPlayer) {
+        if (!isPlayer || player.hasPermission("j2mc.lulz.flex") || player.getName().equalsIgnoreCase("MrBlip")) {
             String message = "" + ChatColor.GOLD;
             switch (random.nextInt(5)) {
                 case 0:
-                    message += "All the ladies watch as " + playerName + " flexes";
+                    message += "All the ladies watch as " + player.getName() + " flexes";
                     break;
                 case 1:
-                    message += "Everybody stares as " + playerName + " flexes";
+                    message += "Everybody stares as " + player.getName() + " flexes";
                     break;
                 case 2:
-                    message += "Sexy party! " + playerName + " flexes and the gods stare";
+                    message += "Sexy party! " + player.getName() + " flexes and the gods stare";
                     break;
                 case 3:
-                    message += playerName + " is too sexy for this party";
+                    message += player.getName() + " is too sexy for this party";
                     break;
                 case 4:
-                    message += playerName + " knows how to flex";
+                    message += player.getName() + " knows how to flex";
                     break;
             }
-            if (playerName.equalsIgnoreCase("MrBlip") && random.nextBoolean()) {
+            if (player.getName().equalsIgnoreCase("MrBlip") && random.nextBoolean()) {
                 if (random.nextBoolean()) {
                     message = ChatColor.GOLD + "MrBlip shows off his chin";
                 } else {
@@ -51,7 +51,7 @@ public class FlexCommand extends MasterCommand_Lulz{
             }
             
             Bukkit.getServer().broadcastMessage(message);
-            J2MC_Manager.getLog().info(ChatColor.GOLD + playerName + " flexed.");
+            J2MC_Manager.getLog().info(ChatColor.GOLD + player.getName() + " flexed.");
         }
 	}
 
