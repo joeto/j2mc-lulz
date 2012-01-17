@@ -1,5 +1,6 @@
 package to.joe.j2mc.lulz.command;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -16,7 +17,8 @@ public class ExtMeCommand extends MasterCommand {
 	public void exec(CommandSender sender, String commandName, String[] args,
 			Player player, boolean isPlayer) {
 		if(isPlayer && player.hasPermission("j2mc.lulz.extinguish")){
-			player.setFireTicks(300);
+			player.setFireTicks(600);
+			player.sendMessage(ChatColor.RED + "You have been extinguished");
 		}
 	}
 

@@ -4,4 +4,16 @@ version: 0.0prealpha
 website: http://forums.joe.to
 author: J2 Minecraft Plugin Team
 description: Joke module.
-depend: J2MC_Core
+commands:
+  afk:
+    description: Kicks player for being afk
+    usage: |
+            /afk
+  extme:
+    description: Extinguish.
+    usage: |
+            /extme
+  flex:
+    description: Flex.
+    usage: |
+            /flex
