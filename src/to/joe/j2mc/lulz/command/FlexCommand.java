@@ -7,24 +7,22 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import to.joe.j2mc.core.J2MC_Manager;
 import to.joe.j2mc.core.command.MasterCommand;
 import to.joe.j2mc.lulz.J2MC_Lulz;
 
-public class FlexCommand extends MasterCommand{
-	
-	public FlexCommand(J2MC_Lulz lulz){
-		super(lulz);
-	}
-	
-	private Random random = new Random();
+public class FlexCommand extends MasterCommand {
 
-	@Override
-	public void exec(CommandSender sender, String commandName, String[] args,
-			Player player, boolean isPlayer) {
-        if (!isPlayer || player.hasPermission("j2mc.lulz.flex") || player.getName().equalsIgnoreCase("MrBlip")) {
+    private final Random random = new Random();
+
+    public FlexCommand(J2MC_Lulz lulz) {
+        super(lulz);
+    }
+
+    @Override
+    public void exec(CommandSender sender, String commandName, String[] args, Player player, boolean isPlayer) {
+        if (sender.hasPermission("j2mc.lulz.flex") || player.getName().equalsIgnoreCase("MrBlip")) {
             String message = "" + ChatColor.GOLD;
-            switch (random.nextInt(5)) {
+            switch (this.random.nextInt(5)) {
                 case 0:
                     message += "All the ladies watch as " + player.getName() + " flexes";
                     break;
@@ -41,17 +39,17 @@ public class FlexCommand extends MasterCommand{
                     message += player.getName() + " knows how to flex";
                     break;
             }
-            if (player.getName().equalsIgnoreCase("MrBlip") && random.nextBoolean()) {
-                if (random.nextBoolean()) {
+            if (player.getName().equalsIgnoreCase("MrBlip") && this.random.nextBoolean()) {
+                if (this.random.nextBoolean()) {
                     message = ChatColor.GOLD + "MrBlip shows off his chin";
                 } else {
                     message = ChatColor.GOLD + "MrBlip shows off his hat";
                 }
             }
-            
+
             Bukkit.getServer().broadcastMessage(message);
-            J2MC_Manager.getLog().info(ChatColor.GOLD + player.getName() + " flexed.");
+            this.plugin.getLogger().info(ChatColor.GOLD + player.getName() + " flexed.");
         }
-	}
+    }
 
 }
