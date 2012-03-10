@@ -17,3 +17,9 @@ commands:
     description: Flex.
     usage: |
             /flex
+permissions:
+  j2mc.lulz.extinguish:
+    description: gives access to /extme command
+    default: false
+  j2mc.lulz.flex:
+    description: allows user to flex B)
