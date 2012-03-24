@@ -20,7 +20,7 @@ public class FlexCommand extends MasterCommand {
 
     @Override
     public void exec(CommandSender sender, String commandName, String[] args, Player player, boolean isPlayer) {
-        if (sender.hasPermission("j2mc.lulz.flex") || player.getName().equalsIgnoreCase("MrBlip")) {
+        if (isPlayer && (sender.hasPermission("j2mc.lulz.flex") || player.getName().equalsIgnoreCase("MrBlip"))) {
             String message = "" + ChatColor.GOLD;
             switch (this.random.nextInt(5)) {
                 case 0:
