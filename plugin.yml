@@ -6,17 +6,14 @@ author: J2 Minecraft Plugin Team
 description: Joke module.
 commands:
   afk:
-    description: Kicks player for being afk
-    usage: |
-            /afk
+    description: Go afk
+    usage: /afk
   extme:
-    description: Extinguish.
-    usage: |
-            /extme
+    description: Extinguish yourself
+    usage: /extme
   flex:
     description: Flex.
-    usage: |
-            /flex
+    usage: /flex
 permissions:
   j2mc.lulz.extinguish:
     description: gives access to /extme command
