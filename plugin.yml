@@ -25,6 +25,6 @@ permissions:
     default: false
   j2mc.lulz.flex:
     description: allows user to flex B)
-  j2mc.lulz.huggles
+  j2mc.lulz.huggles:
     description: Nyan
     default: op
