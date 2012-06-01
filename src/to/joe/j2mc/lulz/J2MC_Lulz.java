@@ -7,6 +7,7 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.craftbukkit.CraftWorld;
@@ -16,7 +17,7 @@ import to.joe.j2mc.lulz.command.ExtMeCommand;
 import to.joe.j2mc.lulz.command.FlexCommand;
 import to.joe.j2mc.lulz.command.HugglesCommand;
 
-public class J2MC_Lulz extends JavaPlugin {
+public class J2MC_Lulz extends JavaPlugin implements Listener {
 
     @Override
     public void onDisable() {
@@ -31,6 +32,9 @@ public class J2MC_Lulz extends JavaPlugin {
         this.getCommand("afk").setExecutor(new AFKCommand(this));
         this.getCommand("extme").setExecutor(new ExtMeCommand(this));
         this.getCommand("huggles").setExecutor(new HugglesCommand(this));
+
+        this.getServer().getPluginManager().registerEvents(this, this);
+        this.huggles = new HashMap<String, Integer>();
     }
 
     private HashMap<String, Integer> huggles;
