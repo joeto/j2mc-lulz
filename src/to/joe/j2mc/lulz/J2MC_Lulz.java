@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Random;
 
 import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -41,6 +40,7 @@ public class J2MC_Lulz extends JavaPlugin implements Listener {
 
     public void hug(Player player) {
         this.unhug(player.getName());
+        this.burst(player);
         this.huggles.put(player.getName(), this.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Love(player), 5, 5));
     }
 
@@ -55,31 +55,33 @@ public class J2MC_Lulz extends JavaPlugin implements Listener {
         this.unhug(event.getPlayer().getName());
     }
 
+    public void burst(Player player) {
+        System.out.println("Bursting " + player.getName());
+        final double d0 = this.random.nextGaussian() * 0.02D;
+        final double d1 = this.random.nextGaussian() * 0.02D;
+        final double d2 = this.random.nextGaussian() * 0.02D;
+        final Location location = player.getLocation();
+        final double locX = location.getX();
+        final double locY = location.getY();
+        final double locZ = location.getZ();
+        ((CraftWorld) player.getWorld()).getHandle().a("heart", (locX + (this.random.nextFloat() * this.width * 2.0F)) - this.width, locY + 0.5D + (this.random.nextFloat() * this.length), (locZ + (this.random.nextFloat() * this.width * 2.0F)) - this.width, d0, d1, d2);
+    }
+
     public Random random = new Random();
+    float width = 0.6F;
+    float length = 1.8F;
 
     private class Love implements Runnable {
 
         private final Player player;
-        World world;
-        float width = 0.6F;
-        float length = 1.8F;
 
         public Love(Player player) {
             this.player = player;
-            this.world = player.getWorld();
         }
 
         @Override
         public void run() {
-            final double d0 = J2MC_Lulz.this.random.nextGaussian() * 0.02D;
-            final double d1 = J2MC_Lulz.this.random.nextGaussian() * 0.02D;
-            final double d2 = J2MC_Lulz.this.random.nextGaussian() * 0.02D;
-            final Location location = this.player.getLocation();
-            final double locX = location.getX();
-            final double locY = location.getY();
-            final double locZ = location.getZ();
-
-            ((CraftWorld) this.world).getHandle().a("heart", (locX + (J2MC_Lulz.this.random.nextFloat() * this.width * 2.0F)) - this.width, locY + 0.5D + (J2MC_Lulz.this.random.nextFloat() * this.length), (locZ + (J2MC_Lulz.this.random.nextFloat() * this.width * 2.0F)) - this.width, d0, d1, d2);
+            J2MC_Lulz.this.burst(this.player);
         }
 
     }
