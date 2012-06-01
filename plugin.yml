@@ -14,17 +14,9 @@ commands:
   flex:
     description: Flex.
     usage: /flex
-  huggles:
-    description: I wub roo
-    usage: /huggles
-    permission: j2mc.lulz.huggles
-    permission-message: Error. Not capable of love.
 permissions:
   j2mc.lulz.extinguish:
     description: gives access to /extme command
     default: false
   j2mc.lulz.flex:
     description: allows user to flex B)
-  j2mc.lulz.huggles:
-    description: Nyan
-    default: op
