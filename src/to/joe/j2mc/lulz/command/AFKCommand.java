@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 import to.joe.j2mc.core.command.MasterCommand;
 import to.joe.j2mc.lulz.J2MC_Lulz;
 
-public class AFKCommand extends MasterCommand {
+public class AFKCommand extends MasterCommand<J2MC_Lulz> {
 
     public AFKCommand(J2MC_Lulz lulz) {
         super(lulz);

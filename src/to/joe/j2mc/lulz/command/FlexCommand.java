@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 import to.joe.j2mc.core.command.MasterCommand;
 import to.joe.j2mc.lulz.J2MC_Lulz;
 
-public class FlexCommand extends MasterCommand {
+public class FlexCommand extends MasterCommand<J2MC_Lulz> {
 
     private final Random random = new Random();
 
